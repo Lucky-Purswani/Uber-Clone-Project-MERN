@@ -5,7 +5,10 @@ export const SocketDataContext = createContext();
 
 
 
-const socket = io(import.meta.env.VITE_BASE_URL);
+const socket = io(import.meta.env.VITE_BASE_URL, {
+  transports: ["websocket"],
+  withCredentials: true
+});
 export function SocketProvider({ children }) {
   useEffect(() => {
     

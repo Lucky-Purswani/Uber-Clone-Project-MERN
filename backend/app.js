@@ -13,10 +13,18 @@ const rideRouter = require('./routes/ride.route');
 // Connect to MongoDB
 connectDB();
 
+const allowedOrigin = 'https://uber-clone-luckypurswani.vercel.app';
+
 app.use(cors({
-  origin: "https://uber-clone-luckypurswani.vercel.app/",
-  credentials: true, // Needed if you're using cookies or auth headers
+  origin: allowedOrigin,
+  credentials: true, // important for cookies
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+app.options('*', cors());
+
+
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());

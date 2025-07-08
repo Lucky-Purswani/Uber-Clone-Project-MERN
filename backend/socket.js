@@ -6,10 +6,12 @@ const Ride = require('./models/ride.model');
 let io = null;
 
 function initializeSocket(server) {
+    const allowedOrigin = 'https://uber-clone-luckypurswani.vercel.app';
     io = new Server(server, {
         cors: {
-            origin: "*",
-            methods: ["GET", "POST"]
+            origin: allowedOrigin,
+            methods: ['GET', 'POST'],
+            credentials: true
         }
     });
 
