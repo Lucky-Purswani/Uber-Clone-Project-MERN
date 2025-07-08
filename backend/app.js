@@ -22,15 +22,8 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization']
 };
 
-// Apply CORS globally and properly
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Preflight fix
-
-// Debug log to verify
-app.use((req, res, next) => {
-  console.log('[CORS DEBUG] Origin:', req.headers.origin);
-  next();
-});
+app.options('*', cors(corsOptions));
 
 
 app.use(express.json());
