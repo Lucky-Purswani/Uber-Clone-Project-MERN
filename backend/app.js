@@ -14,7 +14,7 @@ const rideRouter = require('./routes/ride.route');
 connectDB();
 
 app.use(cors({
-  origin: "https://uber-clone-by-luckypurswani-six.vercel.app/",
+  origin: "https://uber-clone-luckypurswani.vercel.app/",
   credentials: true, // Needed if you're using cookies or auth headers
 }));
 app.use(express.json());
