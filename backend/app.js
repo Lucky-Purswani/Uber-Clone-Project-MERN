@@ -15,14 +15,22 @@ connectDB();
 
 const allowedOrigin = 'https://uber-clone-luckypurswani.vercel.app';
 
-app.use(cors({
+const corsOptions = {
   origin: allowedOrigin,
-  credentials: true, // important for cookies
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
-}));
+};
 
-app.options('*', cors());
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", allowedOrigin);
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
 
 
 app.use(express.json());
