@@ -33,7 +33,7 @@ function RideStarted() {
   useEffect(() => {
     if (pickup) {
       axios
-        .get(`${import.meta.env.VITE_BASE_URL}/map/coordinates`, {
+        .get(`${import.meta.env.VITE_BASE_URL}map/coordinates`, {
           params: { address: pickup },
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -49,7 +49,7 @@ function RideStarted() {
     }
     if (destination) {
       axios
-        .get(`${import.meta.env.VITE_BASE_URL}/map/coordinates`, {
+        .get(`${import.meta.env.VITE_BASE_URL}map/coordinates`, {
           params: { address: destination },
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,

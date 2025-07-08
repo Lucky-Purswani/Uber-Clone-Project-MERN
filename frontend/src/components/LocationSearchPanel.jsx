@@ -12,7 +12,7 @@ function LocationSearchPanel({pickup, destination, setvehiclePanelOpen, setpanel
     const getVehicleRideInfo = async (pickup, destination) => {
         try {
             const res = await axios.get(
-              `${import.meta.env.VITE_BASE_URL}/ride/fare-distance-duration`,
+              `${import.meta.env.VITE_BASE_URL}ride/fare-distance-duration`,
               {
                 params:{
                     pickup,
@@ -47,7 +47,7 @@ function LocationSearchPanel({pickup, destination, setvehiclePanelOpen, setpanel
         const fetchSuggestions = async () => {
             try {
                 const res = await axios.get(
-                    `${import.meta.env.VITE_BASE_URL}/map/suggestions`,
+                    `${import.meta.env.VITE_BASE_URL}map/suggestions`,
                     { params: { address: searchQuery }, 
                       headers: {
                             Authorization: `Bearer ${localStorage.getItem("token")}`,

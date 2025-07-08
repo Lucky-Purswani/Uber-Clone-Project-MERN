@@ -11,7 +11,7 @@ function NewRidePopUpPanel({rideOnCaptainSide, setrideAcceptIgnorePanelOpen, set
     const {captain} = useContext(CaptainDataContext);
     console.log("This is captain data from context", captain);
     const response  = async (e) =>{
-        await axios.post(`${import.meta.env.VITE_BASE_URL}/ride/accept`, {rideId:rideOnCaptainSide._id, captain}, 
+        await axios.post(`${import.meta.env.VITE_BASE_URL}ride/accept`, {rideId:rideOnCaptainSide._id, captain}, 
             {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`

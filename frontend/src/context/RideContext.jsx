@@ -38,7 +38,7 @@ export const RideContext = ({ children }) => {
   const getVehicleRideInfo = async (pickup, destination) => {
     try {
         const res = await axios.post(
-          `${import.meta.env.VITE_BASE_URL}/ride/request`,
+          `${import.meta.env.VITE_BASE_URL}ride/request`,
           {
             pickup,
             destination
