@@ -17,7 +17,7 @@ function CaptainRidingProtectedWrapper({ children }) {
         return;
       }
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BASE_URL}//captains/profile`, {
+        const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/captains/profile`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (res.status === 200) {

@@ -30,7 +30,7 @@ function Riding() {
 
     useEffect(() => {
       if (pickupAddress) {
-        axios.get(`${import.meta.env.VITE_BASE_URL}//map/coordinates`, {
+        axios.get(`${import.meta.env.VITE_BASE_URL}/map/coordinates`, {
           params: { address: pickupAddress }, 
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -46,7 +46,7 @@ function Riding() {
         });
       }
       if (destinationAddress) {
-        axios.get(`${import.meta.env.VITE_BASE_URL}//map/coordinates`, {
+        axios.get(`${import.meta.env.VITE_BASE_URL}/map/coordinates`, {
           params: { address: destinationAddress }, 
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`

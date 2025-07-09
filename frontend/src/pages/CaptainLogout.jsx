@@ -12,7 +12,7 @@ function CaptainLogout() {
 
     const logoutUser = async () => {
       try {
-        await axios.get(`${import.meta.env.VITE_BASE_URL}//captains/logout`, {
+        await axios.get(`${import.meta.env.VITE_BASE_URL}/captains/logout`, {
           headers: {
             Authorization: `Bearer ${token}`
           }

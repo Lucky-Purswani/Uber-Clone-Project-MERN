@@ -19,7 +19,7 @@ function RideConfirmationPanel({ setsearchingForVehiclePanelOpen, setrideConfirm
     const getVehicleRideInfo = async (pickup, destination, vehicleType) => {
              try {
                const getVehicleRideInfo = await axios.post(
-                 `${import.meta.env.VITE_BASE_URL}//ride/request`,
+                 `${import.meta.env.VITE_BASE_URL}/ride/request`,
                  {
                   pickup: pickup,
                   destination: destination,

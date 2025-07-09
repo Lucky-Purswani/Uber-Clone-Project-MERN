@@ -13,7 +13,7 @@ function UserLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const userCheck = { email, password }
-    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}//users/login`, userCheck)
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`, userCheck)
     const token = await response.data.token
     if(response.status === 200){
       setUser(response.data.user)
