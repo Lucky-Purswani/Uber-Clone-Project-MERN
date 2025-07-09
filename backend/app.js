@@ -30,6 +30,19 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+console.log('🛠️ Listing registered routes...');
+app._router.stack.forEach((middleware) => {
+  if (middleware.route) {
+    console.log('[ROUTE]', middleware.route.path);
+  } else if (middleware.name === 'router') {
+    middleware.handle.stack.forEach((handler) => {
+      if (handler.route) {
+        console.log('[NESTED ROUTE]', handler.route.path);
+      }
+    });
+  }
+});
+
 app.use('/users', userRouter);
 app.use('/captains', captainRouter); 
 app.use('/map', mapRouter);  
