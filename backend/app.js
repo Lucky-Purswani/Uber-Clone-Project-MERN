@@ -43,9 +43,14 @@ app._router.stack.forEach((middleware) => {
   }
 });
 
-app.use('/users', userRouter);
-app.use('/captains', captainRouter); 
-app.use('/map', mapRouter);  
-app.use('/ride', rideRouter);
+try {
+  app.use('/users', userRouter);
+  app.use('/captains', captainRouter);
+  app.use('/map', mapRouter);  
+  app.use('/ride', rideRouter);
+} catch (err) {
+  console.error("❌ Route loading error:", err.message);
+  process.exit(1);
+}
 
 module.exports = app;
