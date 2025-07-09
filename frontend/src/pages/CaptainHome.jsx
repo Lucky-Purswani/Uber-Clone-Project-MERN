@@ -37,7 +37,7 @@ function CaptainHome() {
   const toggleStatus = async () => {
     const newStatus = captainStatus === 'active' ? 'inactive' : 'active';
     try {
-      await axios.patch(`${import.meta.env.VITE_BASE_URL}captains/status`, 
+      await axios.patch(`{import.meta.env.VITE_BASE_URL}/captains/status`, 
         { status: newStatus },
         {headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }}
       )
@@ -84,7 +84,7 @@ function CaptainHome() {
   });
 
   const acceptRide = async () => {
-    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}rides/accept`, 
+    const response = await axios.post(`{import.meta.env.VITE_BASE_URL}/rides/accept`, 
       {
         rideId: rideOnCaptainSide._id,
         

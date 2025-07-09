@@ -34,7 +34,7 @@ function FinishRideConfirmationPanel({rideOnCaptainSide}) {
 
 
   async function endRide() {
-    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}ride/end-ride`, {rideId:rideOnCaptainSide._id}, {headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}});
+    const response = await axios.post(`{import.meta.env.VITE_BASE_URL}/ride/end-ride`, {rideId:rideOnCaptainSide._id}, {headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}});
     if(response.status === 200) {
       navigate('/captain-home');
     }

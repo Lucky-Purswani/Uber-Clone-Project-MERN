@@ -30,7 +30,7 @@ function AcceptedRideUserDetailPanel({rideOnCaptainSide, setacceptedRideUserDeta
 
   const otpVerify = async () => {
     console.log("Ride on captian side",rideOnCaptainSide);
-    const response = await axios.get(`${import.meta.env.VITE_BASE_URL}ride/otp-verify`, 
+    const response = await axios.get(`{import.meta.env.VITE_BASE_URL}/ride/otp-verify`, 
       {
       params: {
           otp: otp,
