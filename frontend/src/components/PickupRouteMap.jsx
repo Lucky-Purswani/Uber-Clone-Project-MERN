@@ -69,7 +69,7 @@ function PickupRouteMap({ pickupForRoute }) {
   useEffect(() => {
     if (pickupForRoute) {
       axios
-        .get(`{import.meta.env.VITE_BASE_URL}/map/coordinates`, {
+        .get(`${import.meta.env.VITE_BASE_URL}//map/coordinates`, {
           params: { address: pickupForRoute },
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,

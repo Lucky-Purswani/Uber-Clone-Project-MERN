@@ -19,7 +19,7 @@ function UserProtectedWrapper({children}) {
         }
         const verifyUser = async () => {
           try {
-            const res = await axios.get(`{import.meta.env.VITE_BASE_URL}/users/profile`, {
+            const res = await axios.get(`${import.meta.env.VITE_BASE_URL}//users/profile`, {
               headers: { Authorization: `Bearer ${token}` }
             });
             // console.log("here")

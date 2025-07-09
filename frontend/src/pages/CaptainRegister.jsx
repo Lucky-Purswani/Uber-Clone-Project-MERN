@@ -35,7 +35,7 @@ function CaptainRegister() {
         vehicleType: vehicle.vehicleType
       }
     }
-    const response = await axios.post(`{import.meta.env.VITE_BASE_URL}/captains/register`, newCaptain)
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}//captains/register`, newCaptain)
     if(response.status === 201){
       const data = response.data
       localStorage.setItem('token', data.token)

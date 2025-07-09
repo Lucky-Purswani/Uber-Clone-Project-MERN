@@ -14,7 +14,7 @@ function CaptainLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const checkCaptain = { email, password };
-    const response = await axios.post(`{import.meta.env.VITE_BASE_URL}/captains/login`, checkCaptain)
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}//captains/login`, checkCaptain)
     const data = await response.data
     if (response.status === 200) {
       setCaptain(data.captain)
