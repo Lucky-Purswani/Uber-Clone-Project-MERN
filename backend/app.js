@@ -13,7 +13,7 @@ const rideRouter = require('./routes/ride.route');
 // Connect to MongoDB
 connectDB();
 
-const allowedOrigin = 'https://uber-clone-luckypurswani.vercel.app';
+const allowedOrigin = 'https://uber-clone-50cr.onrender.com';
 
 const corsOptions = {
   origin: allowedOrigin,

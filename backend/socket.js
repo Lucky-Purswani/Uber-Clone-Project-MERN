@@ -6,7 +6,7 @@ const Ride = require('./models/ride.model');
 let io = null;
 
 function initializeSocket(server) {
-    const allowedOrigin = 'https://uber-clone-luckypurswani.vercel.app';
+    const allowedOrigin = 'https://uber-clone-50cr.onrender.com';
     io = new Server(server, {
         cors: {
             origin: allowedOrigin,
