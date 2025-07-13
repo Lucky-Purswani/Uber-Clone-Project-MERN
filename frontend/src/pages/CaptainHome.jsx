@@ -222,10 +222,10 @@ function CaptainHome() {
         <div className='h-2/6' ref={captainHomeDetailPanelRef}>
           <CaptainHomeDetailPanel setCaptainStatus={setCaptainStatus} captainStatus={captainStatus} captain={captain} setonline={setonline}/>
         </div>
-        <div ref={rideAcceptIgnorePanelRef} className='bg-white z-20 fixed bottom-0 overflow-y-auto w-screen'>
+        <div ref={rideAcceptIgnorePanelRef} className='bg-white z-30 fixed bottom-0 overflow-y-auto w-screen'>
           <NewRidePopUpPanel acceptRide = {acceptRide} rideOnCaptainSide={rideOnCaptainSide} setrideAcceptIgnorePanelOpen={setrideAcceptIgnorePanelOpen} setacceptedRideUserDetailPanelOpen={setacceptedRideUserDetailPanelOpen}/>
         </div>
-        <div ref={acceptedRideDetailPanelRef}  className='bg-white h-screen z-20 fixed bottom-0 overflow-y-auto w-screen'>
+        <div ref={acceptedRideDetailPanelRef}  className='bg-white h-screen z-30 fixed bottom-0 overflow-y-auto w-screen'>
           <h4 
             onClick={() => setsection(!section)}
             ref={arrorRef}
