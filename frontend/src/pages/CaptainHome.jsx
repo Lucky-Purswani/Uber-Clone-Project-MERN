@@ -22,10 +22,10 @@ function CaptainHome() {
   const [rideOnCaptainSide, setrideOnCaptainSide] = useState({})
   const [acceptedRideUserDetailPanelOpen, setacceptedRideUserDetailPanelOpen] = useState(false)
   const [rideAcceptIgnorePanelOpen, setrideAcceptIgnorePanelOpen] = useState(false)
-  const [online, setonline] = useState("")
   const { socket } = useContext(SocketDataContext);
   const { captain, setCaptain } = useContext(CaptainDataContext);
   const { setCaptainLocationMap, setPickupMap } = useContext(MapContext);
+  const [online, setonline] = useState(captain?.status === 'active');
   const [captainStatus, setCaptainStatus] = useState(captain?.status || 'inactive');
   const [section, setsection] = useState(true)
   const [pickupForRoute, setpickupForRoute] = useState("")
@@ -33,22 +33,27 @@ function CaptainHome() {
   const captainHomeDetailPanelRef = useRef(null)
   const mapRef = useRef(null)
 
+  useEffect(() => {
+  console.log("Online status changed:", online);
+}, [online]);
+
 
   const toggleStatus = async () => {
-    const newStatus = captainStatus === 'active' ? 'inactive' : 'active';
-    try {
-      await axios.patch(`${import.meta.env.VITE_BASE_URL}/captains/status`, 
-        { status: newStatus },
-        {headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }}
-      )
-      socket.emit('captain-status-change', { captainId: captain._id, status: newStatus });
-      setCaptainStatus(newStatus);
-      setonline(newStatus === 'active');
-      setCaptain({ ...captain, status: newStatus });
-    } catch (error) {
-      console.log('Error toggling status:', error);
-    }
-  };
+  const newStatus = captainStatus === 'active' ? 'inactive' : 'active';
+  try {
+    await axios.patch(`${import.meta.env.VITE_BASE_URL}/captains/status`, 
+      { status: newStatus },
+      {headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }}
+    );
+    socket.emit('captain-status-change', { captainId: captain._id, status: newStatus });
+    setCaptainStatus(newStatus);
+    setonline(newStatus === 'active'); // this will now always be a boolean
+    setCaptain({ ...captain, status: newStatus });
+  } catch (error) {
+    console.log('Error toggling status:', error);
+  }
+};
+
   
   useEffect(() => {
       // console.log("CaptainProtectedWrapper useeffect for the socket");
@@ -178,7 +183,7 @@ function CaptainHome() {
   return (
     <div className='h-screen '>
         {/* Header  */}
-        <div className="flex flex-col z-20 gap-3 absolute w-full top-0 items-center justify-between py-3 bg-white border-b">
+        <div className="flex flex-col z-30 gap-3 absolute w-full top-0 items-center justify-between py-3 bg-white border-b">
           <div className='flex items-center justify-between px-4 w-full'>
             <img className='h-4' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/2560px-Uber_logo_2018.svg.png" alt="uberLogo" />
             <div className="font-semibold text-base text-black">{online ? 'Online' : 'Offline'}</div>
