@@ -9,7 +9,8 @@ function initializeSocket(server) {
     const allowedOrigin = 'https://uber-clone-50cr.onrender.com';
     io = new Server(server, {
         cors: {
-            origin: allowedOrigin,
+            // origin: allowedOrigin,
+            origin: '*',
             methods: ['GET', 'POST'],
             credentials: true
         }

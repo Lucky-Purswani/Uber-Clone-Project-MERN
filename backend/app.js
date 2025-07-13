@@ -10,13 +10,24 @@ const cookieParser = require('cookie-parser');
 const captainRouter = require('./routes/captain.route');
 const mapRouter = require('./routes/map.route');
 const rideRouter = require('./routes/ride.route');
+const path = require('path');
 // Connect to MongoDB
 connectDB();
 
 const allowedOrigin = 'https://uber-clone-50cr.onrender.com';
 
+
+// Serve React static files
+app.use(express.static(path.join(__dirname, 'dist')));
+// For React routing
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+
 const corsOptions = {
-  origin: allowedOrigin,
+  // origin: allowedOrigin,
+  origin: '*',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -30,18 +41,18 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-console.log('🛠️ Listing registered routes...');
-app._router.stack.forEach((middleware) => {
-  if (middleware.route) {
-    console.log('[ROUTE]', middleware.route.path);
-  } else if (middleware.name === 'router') {
-    middleware.handle.stack.forEach((handler) => {
-      if (handler.route) {
-        console.log('[NESTED ROUTE]', handler.route.path);
-      }
-    });
-  }
-});
+// console.log('🛠️ Listing registered routes...');
+// app._router.stack.forEach((middleware) => {
+//   if (middleware.route) {
+//     console.log('[ROUTE]', middleware.route.path);
+//   } else if (middleware.name === 'router') {
+//     middleware.handle.stack.forEach((handler) => {
+//       if (handler.route) {
+//         console.log('[NESTED ROUTE]', handler.route.path);
+//       }
+//     });
+//   }
+// });
 
 try {
   app.use('/users', userRouter);
