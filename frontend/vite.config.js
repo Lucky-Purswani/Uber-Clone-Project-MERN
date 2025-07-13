@@ -7,6 +7,6 @@ export default defineConfig({
   preview: {
     port: process.env.PORT || 4173,
     host: true,
-    allowedHosts: ['uber-clone-50cr.onrender.com'],
+    allowedHosts: ['lucky-purswani-project1.onrender.com'],
   },
 });
