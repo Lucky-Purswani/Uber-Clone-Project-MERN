@@ -13,13 +13,13 @@ const rideRouter = require('./routes/ride.route');
 // Connect to MongoDB
 connectDB();
 
-const allowedOrigin = 'https://uber-clone-50cr.onrender.com';
+const allowedOrigin = 'https://lucky-purswani-project1.onrender.com';
 
 const corsOptions = {
-  // origin: allowedOrigin,
-  origin: '*',
+  origin: allowedOrigin,
+  // origin: '*',
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization']
 };
 

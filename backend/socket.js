@@ -6,12 +6,12 @@ const Ride = require('./models/ride.model');
 let io = null;
 
 function initializeSocket(server) {
-    const allowedOrigin = 'https://uber-clone-50cr.onrender.com';
+    const allowedOrigin = 'https://lucky-purswani-project1.onrender.com';
     io = new Server(server, {
         cors: {
-            // origin: allowedOrigin,
-            origin: '*',
-            methods: ['GET', 'POST'],
+            origin: allowedOrigin,
+            // origin: '*',
+            methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
             credentials: true
         }
     });
