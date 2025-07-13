@@ -10,20 +10,10 @@ const cookieParser = require('cookie-parser');
 const captainRouter = require('./routes/captain.route');
 const mapRouter = require('./routes/map.route');
 const rideRouter = require('./routes/ride.route');
-const path = require('path');
 // Connect to MongoDB
 connectDB();
 
 const allowedOrigin = 'https://uber-clone-50cr.onrender.com';
-
-
-// Serve React static files
-app.use(express.static(path.join(__dirname, 'dist')));
-// For React routing
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
 
 const corsOptions = {
   // origin: allowedOrigin,
