@@ -13,15 +13,24 @@ const rideRouter = require('./routes/ride.route');
 // Connect to MongoDB
 connectDB();
 
-const allowedOrigin = 'https://lucky-purswani-project1.onrender.com';
+const allowedOrigins = [
+  'https://lucky-purswani-project1.onrender.com',
+  'https://scuber-clone.vercel.app'
+];
 
 const corsOptions = {
-  origin: allowedOrigin,
-  // origin: '*',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization']
 };
+
 
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
