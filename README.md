@@ -52,6 +52,49 @@ A full-stack Uber clone application built with React, Node.js, Express, and Mong
 - `captain.model.js` - Captain schema with vehicle details
 - `ride.model.js` - Ride information schema
 
+```mermaid
+%%{init: {"theme": "dark", "themeVariables": { "background": "#2b2b2b" }}}%%
+erDiagram
+    USER ||--o{ RIDE : "books"
+    CAPTAIN ||--o{ RIDE : "assigned_to"
+    
+    USER {
+        String _id
+        Object fullname
+        String email
+        String password
+        String socketId
+    }
+
+    CAPTAIN {
+        String _id
+        Object fullname
+        String email
+        String password
+        String socketId
+        String status
+        Object vehicle
+        Object location
+    }
+
+    RIDE {
+        String _id
+        String pickup
+        String destination
+        Number distance
+        Number duration
+        Object fare
+        String status
+        String paymentId
+        String orderId
+        String signature
+        String vehicleType
+        String otp
+    }
+
+
+```
+
 #### Routes
 - `/auth` - Authentication endpoints
 - `/users` - User management
