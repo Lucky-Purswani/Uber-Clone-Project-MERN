@@ -30,7 +30,7 @@ function UserLogin() {
 
       <div className="my-auto flex flex-col items-center justify-center px-4">
         <div className="w-full max-w-md">
-          <h2 className="text-3xl font-bold mb-8 text-center">Welcome Back, Login as User</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Login as User</h2>
           
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
@@ -68,9 +68,9 @@ function UserLogin() {
               </Link>
             </p>
             <p className="text-gray-600">
-              Are you a captain? {' '}
+              Are you a rider? {' '}
               <Link to="/captain-login" className="text-black font-semibold hover:underline">
-                Login as Captain
+                Login as rider
               </Link>
             </p>
           </div>
