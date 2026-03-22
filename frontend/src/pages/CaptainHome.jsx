@@ -185,7 +185,7 @@ function CaptainHome() {
         {/* Header  */}
         <div className="flex flex-col z-30 gap-3 absolute w-full top-0 items-center justify-between py-3 bg-white border-b">
           <div className='flex items-center justify-between px-4 w-full'>
-            <img className='h-4' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/2560px-Uber_logo_2018.svg.png" alt="uberLogo" />
+            <img className='h-4' src="https://cdn-icons-png.freepik.com/512/89/89105.png" alt="ScuberLogo" />
             <div className="font-semibold text-base text-black">{online ? 'Online' : 'Offline'}</div>
             <label className="inline-flex items-center cursor-pointer relative">
               <input type="checkbox" checked={online} onChange={toggleStatus} className="sr-only peer" />

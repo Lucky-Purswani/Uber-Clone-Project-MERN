@@ -130,7 +130,7 @@ function Home() {
   return (
     <div className='relative h-screen'>
       <div className='absolute top-4 left-4 z-10'>
-        <img className='w-20' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/2560px-Uber_logo_2018.svg.png" alt="uberLogo" />
+        <img className='w-20' src="https://cdn-icons-png.freepik.com/512/89/89105.png" alt="ScuberLogo" />
       </div>
       <div className="h-screen w-full">
         <CurrentLocationMap />

@@ -79,7 +79,7 @@ function RideSelectPage({ pickup, destination, setvehiclePanelOpen, setrideConfi
           //  getVehicleRideInfo(pickupLocation, destinationLocation, 'car')
           }
           } className='flex justify-evenly active:border-gray-600 p-3 gap-2 border-2 items-center border-gray-100 rounded-lg'>
-            <img className='h-12 bg-opacity-100' src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_538,w_956/v1688398971/assets/29/fbb8b0-75b1-4e2a-8533-3a364e7042fa/original/UberSelect-White.png" alt="" />
+            <img className='h-12 bg-opacity-100' src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_538,w_956/v1688398971/assets/29/fbb8b0-75b1-4e2a-8533-3a364e7042fa/original/ScuberSelect-White.png" alt="" />
             <div>
                 <h5 className='inline-flex gap-2 font-medium'>Uber Car <span className='inline-flex items-center text-base font-normal'> <IoMdPerson size={18}/> 4</span></h5>
                 <h1 className='text-base'>3 mins away</h1>

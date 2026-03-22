@@ -87,13 +87,13 @@ function RideStarted() {
   return (
     <div className="h-screen">
       <div className='absolute top-4 left-4 z-10'>
-        <img className='w-20' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/2560px-Uber_logo_2018.svg.png" alt="uberLogo" />
+        <img className='w-20' src="https://cdn-icons-png.freepik.com/512/89/89105.png" alt="ScuberLogo" />
       </div>
       <div className="h-4/5">
         <img
           className="h-32 absolute -top-8 -left-4 bg-cover"
           src="https://static.wixstatic.com/media/e2cab8_62b16e028bff401c95a1f919099d86db~mv2.png/v1/fill/w_500,h_500,al_c/e2cab8_62b16e028bff401c95a1f919099d86db~mv2.png"
-          alt="uberlogo"
+          alt="Scuberlogo"
         />
         <RouteInMap pickup={pickupCoords} captainLocation={captainLocation} />
       </div>
