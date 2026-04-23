@@ -15,7 +15,8 @@ connectDB();
 
 const allowedOrigins = [
   'https://lucky-purswani-project1.onrender.com',
-  'https://scuber-clone.vercel.app'
+  'https://scuber-clone.vercel.app',
+  'https://goscuber.vercel.app'
 ];
 
 const corsOptions = {
